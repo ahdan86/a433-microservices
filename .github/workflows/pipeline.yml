@@ -22,7 +22,7 @@ jobs:
         run: go test -v -short --count=1 $(go list ./...)
       
       - name: Export docker password
-        run: export DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD }}
+        run: export PASSWORD_DOCKER_HUB=${{ secrets.DOCKER_PASSWORD }}
       
       - name: Change permission of script
         run: chmod +x build_push_image_karsajobs.sh
