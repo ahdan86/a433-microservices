@@ -23,6 +23,9 @@ jobs:
       
       - name: Export docker password
         run: export DOCKER_PASSWORD=${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Change permission of script
+        run: chmod +x build_push_image_karsajobs.sh
 
       - name: Run build and push image karsajobs script
         run: ./build_push_image_karsajobs.sh
