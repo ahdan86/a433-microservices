@@ -21,12 +21,9 @@ jobs:
       - name: Run Unit test on golang app
         run: go test -v -short --count=1 $(go list ./...)
       
-      - name: Export docker password
-        run: export PASSWORD_DOCKER_HUB=${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Change permission of script
-        run: chmod +x build_push_image_karsajobs.sh
-
-      - name: Run build and push image karsajobs script
-        run: ./build_push_image_karsajobs.sh
-        
+      - name: Export docker password and login
+        run: | 
+          export PASSWORD_DOCKER_HUB=${{ secrets.DOCKER_PASSWORD }}
+          chmod +x build_push_image_karsajobs.sh
+          ./build_push_image_karsajobs.sh
+          
